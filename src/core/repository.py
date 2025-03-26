@@ -11,7 +11,7 @@ class Repository:
         self.head_path = self.repository_path / "CABEZA"
         self.configuration_path = self.repository_path / "configuracion"
 
-    def inicializar(self):
+    def initialize(self):
         try:
             if self.repository_path.exists():
                 print(Fore.YELLOW + f"\nRepositorio solo-git ya inicializado en: {self.repository_path.resolve()}\n")
