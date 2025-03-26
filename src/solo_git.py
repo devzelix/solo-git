@@ -1,11 +1,11 @@
-from commands.inicializar import inicializar
+from commands.initialize import inicializar
 import click
 
 @click.group()
-def comandos():
+def commands():
     pass
 
-comandos.add_command(inicializar)
+commands.add_command(inicializar)
 
 if __name__ == "__main__":
-    comandos()
+    commands()
