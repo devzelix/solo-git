@@ -22,7 +22,12 @@ class Repository:
                 self.heads_path.mkdir()
                 self.logs_path.mkdir()
                 self.head_path.write_text(f"referencia: {self.heads_path}/main")
-                self.configuration_path.write_text("")
+                global_configuration_path = Path.home() / ".sologitconfiguracion"
+                if global_configuration_path.exists():
+                    configuration = global_configuration_path.read_text()
+                    self.configuration_path.write_text(configuration)
+                else:
+                    self.configuration_path.write_text("")
                 print(Fore.GREEN + f"\nRepositorio solo-git vacío inicializado en: {self.repository_path.resolve()}\n")
         except Exception as e:
             print(Fore.RED + f"\nHubo un error al incializar el repositorio: {e}\n")
